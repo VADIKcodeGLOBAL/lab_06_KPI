@@ -13,7 +13,6 @@
 **/
 
 
-
  // ─── Array utilities ─────────────────────────────────────────────────────────
 
 void fillArrayWithRandomValues(int* array, int size, int minValue, int maxValue) {
@@ -32,10 +31,13 @@ void printArray(const int* array, int size, const string& title) {
 }
 
 void printEvenElements(const int* array, int size, const string& label) {
-    cout << label << ": ";
-    for (int index = 0; index < size; ++index)
+    cout << label << ": \n";
+    for (int index = 0; index < size; ++index) {
         if (array[index] % 2 == 0)
-            cout << array[index] << " ";
+            cout << array[index] << setw(4);
+        if ((index + 1) % (ELEMENTS_PER_LINE * 2) == 0)
+            cout << "\n";
+    }
     cout << "\n";
 }
 
