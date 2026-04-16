@@ -1,4 +1,6 @@
-﻿/**
+﻿#include "Header.h"
+
+/**
  * Lab Assignment
  * ──────────────
  * Task 1:
@@ -8,28 +10,11 @@
  *
  * Task 2:
  *   Measure sorting time for arrays of various sizes.
- */
+**/
 
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <ctime>
-#include <chrono>
-#include <vector>
-#include <string>
-#include <cmath>
 
-using namespace std;
-using namespace std::chrono;
 
-// ─── Constants ───────────────────────────────────────────────────────────────
-
-const int RANDOM_MIN = 0;
-const int RANDOM_MAX = 50;
-const int ELEMENTS_PER_LINE = 20;   // how many numbers to print per line
-const int TIMING_REPEATS = 10;   // how many times to repeat each timing measurement
-
-// ─── Array utilities ─────────────────────────────────────────────────────────
+ // ─── Array utilities ─────────────────────────────────────────────────────────
 
 void fillArrayWithRandomValues(int* array, int size, int minValue, int maxValue) {
     for (int index = 0; index < size; ++index)
@@ -203,7 +188,8 @@ void measureAndPrintTimings() {
 
     cout << R"(
 Results explanation:
-────────────────────
+********************************************************************
+
 1. Merge sort operates only on even elements (~N/2 elements),
    so the actual complexity is: O((N/2) * log2(N/2)) ~ O(N * log N).
 
@@ -232,16 +218,4 @@ int readArraySizeFromKeyboard() {
         cout << "Invalid input. Please enter a positive integer: ";
     }
     return size;
-}
-
-// ─── main ─────────────────────────────────────────────────────────────────────
-
-int main() {
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    int arraySize = readArraySizeFromKeyboard();
-    demonstrateSorting(arraySize);
-    measureAndPrintTimings();
-
-    return 0;
 }
